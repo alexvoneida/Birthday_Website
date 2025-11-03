@@ -14,7 +14,7 @@ function updateClock() {
   const remainingDays = days - years * 365 - months * 30;
 
   const display = `${years} years, ${months} months, ${remainingDays} days, 
-                   ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds ❤️`;
+                   ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 
   const clockEl = document.getElementById("clock");
 
