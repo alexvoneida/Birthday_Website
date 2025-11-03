@@ -28,3 +28,9 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
+
+const envelope = document.getElementById('envelope');
+
+envelope.addEventListener('click', () => {
+  envelope.classList.toggle('open');
+});
