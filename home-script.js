@@ -34,3 +34,17 @@ const envelope = document.getElementById('envelope');
 envelope.addEventListener('click', () => {
   envelope.classList.toggle('open');
 });
+
+const loveNotes = [
+  "You're so caring to everybody around you",
+  "You're REALLY pretty",
+  "You're so funny and I always laugh with you",
+  "You have a very nice smile",
+  "You're so motivated and hardworking",
+  "You're the most smartie pants ever 🤓"
+];
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % loveNotes.length;
+  document.getElementById("love-text").textContent = loveNotes[i];
+}, 3000);
