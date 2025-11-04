@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid red;
+
 }
 
 body {
@@ -208,12 +208,14 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+  padding: 0px;
+  padding-top: 20px;
 }
 
 .polaroid {
+  height: fit-content;
   background: #fff;
-  padding: 10px 10px 30px;
+  padding: 10px 10px 10px;
   width: 150px;
   border-radius: 8px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
