@@ -40,3 +40,33 @@ button:hover {
   margin-top: 1rem;
   width: 200px;
 }
+
+#animationContainer {
+  position: fixed; /* cover whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 9999;
+}
+
+.particle {
+  position: absolute;
+  opacity: 1;
+  animation: rise 2s forwards;
+  will-change: transform, opacity;
+}
+
+/* Keyframes for float + side movement + rotation */
+@keyframes rise {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), -300px) rotate(var(--rotate));
+    opacity: 0;
+  }
+}
