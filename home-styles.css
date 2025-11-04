@@ -8,7 +8,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  background: linear-gradient(135deg, #ffe0f0, #fff5cc);
+  background: linear-gradient(135deg, #fccde5, #fff5cc);
   min-height: 100vh;
   margin: 0;
   display: grid;
@@ -48,12 +48,12 @@ body {
 
 .main {
   display: grid;
-  gap: 10px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-auto-rows: auto;
+  align-items: start;
+  gap: 10px;
 }
+
 
 button {
   margin-top: 1rem;
@@ -84,17 +84,28 @@ button {
   padding: 10px;
   margin: 10px;
   background-color: lightpink;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='32' width='32'><text y='24' font-size='24'>❤️</text></svg>"), auto;
 }
 .div3 { 
   grid-area: 2 / 2 / 3 / 3; 
+  height: 130px;
   border-radius: 12px;
   border: 1px solid hsl(240, 100%, 90%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
   padding: 10px;
   margin: 10px;
   background-color: lightpink;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='32' width='32'><text y='24' font-size='24'>❤️</text></svg>"), auto;
 }
-.div4 { grid-area: 3 / 1 / 5 / 3; }
+.div4 { 
+  grid-area: 3 / 1 / 5 / 3;
+  border-radius: 12px;
+  border: 1px solid hsl(240, 100%, 90%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+  margin: 10px;
+  background-color: lightpink;
+ }
 
 #clock {
   font-size: 1.5rem;
@@ -190,4 +201,41 @@ button {
   margin-top: 1rem;
   color: #d95999;
   font-weight: bold;
+}
+
+.polaroid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 10px 10px 30px;
+  width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: rotate(var(--rotation));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.polaroid p {
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 0.9em;
+  margin-top: 8px;
+}
+
+.polaroid:hover {
+  transform: scale(1.08) rotate(0deg);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
