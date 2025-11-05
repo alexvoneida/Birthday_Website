@@ -1,33 +1,37 @@
-const startDate = new Date("2024-06-08T09:00:00"); // <-- change to your date
+const startDate = new Date("2024-06-08T09:00:00");
+const clock = document.getElementById("clock");
 
-function updateClock() {
+function updateTimeTogether() {
   const now = new Date();
-  const diff = now - startDate;
+  let years = now.getFullYear() - startDate.getFullYear();
+  let months = now.getMonth() - startDate.getMonth();
+  let days = now.getDate() - startDate.getDate();
 
-  const seconds = Math.floor(diff / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
+  if (days < 0) {
+    // Borrow days from previous month
+    months--;
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
 
-  const years = Math.floor(days / 365);
-  const months = Math.floor((days % 365) / 30);
-  const remainingDays = days - years * 365 - months * 30;
+  if (months < 0) {
+    months += 12;
+    years--;
+  }
 
-  const display = `${years} years, ${months} months, ${remainingDays} days, 
-                   ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
+  // Time part (hours, minutes, seconds)
+  const diffMs = now - startDate;
+  const diffSecs = Math.floor(diffMs / 1000);
+  const hours = Math.floor((diffSecs / 3600) % 24);
+  const minutes = Math.floor((diffSecs / 60) % 60);
+  const seconds = diffSecs % 60;
 
-  const clockEl = document.getElementById("clock");
-
-  // Add fade effect
-  clockEl.classList.add("fade");
-  setTimeout(() => {
-    clockEl.textContent = display;
-    clockEl.classList.remove("fade");
-  }, 150);
+  clock.textContent = `${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
 }
 
-setInterval(updateClock, 1000);
-updateClock();
+setInterval(updateTimeTogether, 1000);
+updateTimeTogether();
+
 
 const envelope = document.getElementById('envelope');
 
