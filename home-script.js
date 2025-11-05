@@ -43,7 +43,8 @@ const loveNotes = [
   "You're so motivated and hardworking",
   "You're the most smartie pants ever 🤓",
   "You have so much love in your heart",
-  "You let me talk to you about anything"
+  "You let me talk to you about anything",
+  "You get really excited about seeing me"
 ];
 let i = 0;
 const loveText = document.getElementById("love-text");
